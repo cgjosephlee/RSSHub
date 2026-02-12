@@ -8,9 +8,9 @@ import { parseDate } from '@/utils/parse-date';
 const baseUrl = 'https://seekingalpha.com';
 
 export const route: Route = {
-    path: '/:symbol/:category?',
+    path: '/symbol/:symbol/:category?',
     categories: ['finance'],
-    example: '/seekingalpha/TSM/transcripts',
+    example: '/seekingalpha/symbol/TSM/transcripts',
     parameters: { symbol: 'Stock symbol', category: 'Category, see below, `news` by default' },
     features: {
         antiCrawler: true,
@@ -18,7 +18,7 @@ export const route: Route = {
     radar: [
         {
             source: ['seekingalpha.com/symbol/:symbol/:category', 'seekingalpha.com/symbol/:symbol/earnings/:category'],
-            target: '/:symbol/:category',
+            target: '/symbol/:symbol/:category',
         },
     ],
     name: 'Summary',
